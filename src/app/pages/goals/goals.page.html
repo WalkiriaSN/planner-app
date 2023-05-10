@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title align="center">Goals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <ion-accordion-group *ngFor="let goal of goals">
+    <ion-accordion>
+
+      <ion-item slot="header" color="success">
+
+
+        <ion-checkbox style="margin-right:15px;" id="open-toast"></ion-checkbox>
+
+
+        <ion-label>{{ goal.name }}</ion-label>
+
+        <ion-toast trigger="open-toast" message="Goal Achieved" [duration]="1000" icon="ribbon"> </ion-toast>
+
+
+        <!--Data-->
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Description: {{goal.description}}
+      </div>
+      <div class="ion-padding" slot="content">
+        Start Date: {{goal.date_of_start | date }}
+      </div>
+      <div class="ion-padding" slot="content">
+        End Date: {{goal.date_of_end | date }}
+      </div>
+      <div class="ion-padding" slot="content">
+        Status: {{goal.status}}
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+
+  <!-- Add goal button with alert-->
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button id="present-alert">
+      <ion-icon name="add"></ion-icon>
+      <ion-alert 
+      trigger="present-alert"
+       header="Add New Task"
+      [buttons]="alertButtons"
+      [inputs]="alertInputs">
+      </ion-alert>
+
+    </ion-fab-button>
+
+
+  </ion-fab> -->
+
+
+</ion-content>
